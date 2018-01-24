@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>servletFirstTestClass</servlet-name>
+        <servlet-class>servletTut.Servlet.servletFirstTestClass</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getForm</servlet-name>
+        <servlet-class>servletTut.Servlet.GetFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>postForm</servlet-name>
+        <servlet-class>servletTut.Servlet.PostFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servletFirstTestClass</servlet-name>
+        <url-pattern>/servlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>getForm</servlet-name>
+        <url-pattern>/get</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>postForm</servlet-name>
+        <url-pattern>/postData</url-pattern>
+    </servlet-mapping>
+
+</web-app>
