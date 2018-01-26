@@ -15,7 +15,27 @@
         <servlet-name>postForm</servlet-name>
         <servlet-class>servletTut.Servlet.PostFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>errorHandler</servlet-name>
+        <servlet-class>servletTut.Servlet.ErrorHandler</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sessionHandler</servlet-name>
+        <servlet-class>servletTut.Servlet.SessionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>dbHandler</servlet-name>
+        <servlet-class>servletTut.Servlet.DatabaseServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>dbHandler</servlet-name>
+        <url-pattern>/dbNew</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sessionHandler</servlet-name>
+        <url-pattern>/sessionHandle</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>servletFirstTestClass</servlet-name>
         <url-pattern>/servlet</url-pattern>
@@ -30,6 +50,11 @@
         <url-pattern>/postData</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>errorHandler</servlet-name>
+        <url-pattern>/errorHandler</url-pattern>
+    </servlet-mapping>
+
 
     <filter>
         <filter-name>testFilter</filter-name>
@@ -40,5 +65,9 @@
         <filter-name>testFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <!--<error-page>
+        <location>/errorHandler</location>
+    </error-page>-->
+
 
 </web-app>

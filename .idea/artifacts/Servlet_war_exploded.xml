@@ -11,6 +11,7 @@
           <element id="library" level="project" name="java-json" />
           <element id="library" level="project" name="org.json:json:20171018" />
           <element id="library" level="project" name="commons-digester:commons-digester:2.1" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.45-bin" />
         </element>
       </element>
     </root>

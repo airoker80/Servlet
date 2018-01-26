@@ -23,7 +23,7 @@ public class PostFormServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setIntHeader("Refresh", 1);
+//        resp.setIntHeader("Refresh", 1); /*refresh after every 1 sec*/
         try {
             if (i>=10){
                 resp.sendError(407, "Need authentication!!!" );
