@@ -27,10 +27,18 @@
         <servlet-name>dbHandler</servlet-name>
         <servlet-class>servletTut.Servlet.DatabaseServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>signup</servlet-name>
+        <servlet-class>servletTut.Servlet.signupServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>dbHandler</servlet-name>
         <url-pattern>/dbNew</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>signup</servlet-name>
+        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>sessionHandler</servlet-name>
@@ -65,9 +73,9 @@
         <filter-name>testFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <!--<error-page>
+    <error-page>
         <location>/errorHandler</location>
-    </error-page>-->
+    </error-page>
 
 
 </web-app>

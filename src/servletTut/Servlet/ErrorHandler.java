@@ -22,7 +22,7 @@ public class ErrorHandler extends HttpServlet {
         String requestUri = (String) req.getAttribute("javax.servlet.error.request_uri");
 
         if (servletName.equals(null)) {
-            servletName= "Unknown";
+            servletName = "Unknown";
         }
         if (requestUri == null) {
             requestUri = "Unknown";
@@ -30,10 +30,12 @@ public class ErrorHandler extends HttpServlet {
 
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("throwable",String.valueOf(throwable));
-            jsonObject.put("statusCode",integer);
-            jsonObject.put("servletName",servletName);
-            jsonObject.put("requestUri",requestUri);
+//            jsonObject.put("throwable",String.valueOf(throwable));
+//            jsonObject.put("statusCode",integer);
+//            jsonObject.put("servletName",servletName);
+//            jsonObject.put("requestUri",requestUri);
+            jsonObject.put("msgTitle", "Failed");
+            jsonObject.put("msg", "User Authentication Failed");
         } catch (Exception e) {
             e.printStackTrace();
         }

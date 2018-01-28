@@ -1,5 +1,6 @@
 package servletTut.Servlet;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.HashMap;
 
@@ -22,6 +23,19 @@ public class DBHelper {
         return resultSet;
     }
 
+    public static  ResultSet selectFromTable(String tableName,String condition,int conditionValue,String selectValue){
+        ResultSet resultSet = null;
+        try {
+            Statement stmt = makeConnection().createStatement();
+            String sql;
+            sql = "SELECT "+selectValue+" FROM  " + tableName+" where "+condition+" = "+conditionValue;
+            System.out.println(sql);
+            resultSet = stmt.executeQuery(sql);
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return resultSet;
+    }
 
     static Connection makeConnection() {
         Connection connection = null;
@@ -38,11 +52,15 @@ public class DBHelper {
         }
     }
 
+    public static Statement getStatement() throws SQLException {
+        Statement stmt = makeConnection().createStatement();
+        return stmt;
+    }
     public static void inserIntoTable(String tableName, HashMap<String, String> items) throws Exception {
 
         Statement stmt = makeConnection().createStatement();
         String sql;
-        sql = "INSERT * FROM  " + tableName;
+        sql = "INSERT INTO  token_table " + tableName;
         ResultSet resultSet = stmt.executeQuery(sql);
     }
 }

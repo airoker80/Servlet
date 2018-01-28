@@ -13,6 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 
 /**
  * Created by Sameer on 1/26/2018.
@@ -23,11 +24,17 @@ public class DatabaseServlet extends HttpServlet {
         JSONObject jsonObject = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         try {
-            ResultSet rs = DBHelper.selectFromTable("test");
+            ResultSet rs = DBHelper.selectFromTable("user");
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnCount = rsmd.getColumnCount();
+
             while (rs.next()){
                 JSONObject jsonObject1 = new JSONObject();
-                jsonObject1.put("username",rs.getString("test_name"));
-                jsonObject1.put("password",rs.getString("test_score"));
+                for (int i=1;i<columnCount;i++){
+                    String name = rsmd.getColumnName(i);
+                    System.out.println("name : "+name);
+                    jsonObject1.put(name,rs.getString(name));
+                }
                 jsonArray.put(jsonObject1);
             }
         }catch (Exception e){
