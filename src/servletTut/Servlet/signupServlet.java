@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Enumeration;
 
 public class signupServlet extends HttpServlet {
     private String email, name, lastName, password;
@@ -28,6 +29,13 @@ public class signupServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         printWriter = resp.getWriter();
+
+        Enumeration enumeration = req.getParameterNames();
+        while (enumeration.hasMoreElements()) {
+            String parameterName = (String) enumeration.nextElement();
+            String parameterValue = req.getParameter(parameterName);
+            System.out.println(parameterName + " : " + parameterValue);
+        }
         email = req.getParameter("email");
         password = req.getParameter("password");
         name = req.getParameter("name");
@@ -72,15 +80,6 @@ public class signupServlet extends HttpServlet {
                 System.out.println(jsonObject1);
             }
 
-//            System.out.println(userID);
-//            printWriter.println(userID);
-//
-//            String sql1 ="INSERT INTO token_table (us_id, token) VALUES ('"+
-//                    userID+"','"+
-//                    token
-//                    +"')";
-//            System.out.println(sql1);
-//            Boolean flag1=statement.execute(sql1);
 
 
         } catch (Exception e) {

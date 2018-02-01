@@ -23,12 +23,12 @@ public class DBHelper {
         return resultSet;
     }
 
-    public static  ResultSet selectFromTable(String tableName,String condition,int conditionValue,String selectValue){
+    public static  ResultSet selectFromTable(String selectValue,String tableName,String condition,String conditionValue){
         ResultSet resultSet = null;
         try {
             Statement stmt = makeConnection().createStatement();
             String sql;
-            sql = "SELECT "+selectValue+" FROM  " + tableName+" where "+condition+" = "+conditionValue;
+            sql = "SELECT "+selectValue+" FROM  " + tableName+" where "+condition+" = '"+conditionValue+"'";
             System.out.println(sql);
             resultSet = stmt.executeQuery(sql);
         } catch (SQLException e1) {
