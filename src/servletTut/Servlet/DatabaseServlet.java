@@ -2,6 +2,7 @@ package servletTut.Servlet;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import servletTut.Servlet.Helper.DBHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

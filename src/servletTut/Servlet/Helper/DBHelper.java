@@ -1,4 +1,6 @@
-package servletTut.Servlet;
+package servletTut.Servlet.Helper;
+
+import servletTut.Servlet.Constatnt;
 
 import javax.swing.plaf.nimbus.State;
 import java.sql.*;
@@ -36,8 +38,24 @@ public class DBHelper {
         }
         return resultSet;
     }
+    public static  ResultSet selectFromTable(String selectValue,String tableName,String condition,String conditionValue,String condition1,String conditonValue2){
+        ResultSet resultSet = null;
+        try {
+            Statement stmt = makeConnection().createStatement();
+            String sql;
+            sql = "SELECT "+selectValue+" FROM  " + tableName+" where" +
+                    " "+condition+" = '"+conditionValue+
+                    "' AND " +
+                    " "+condition1+" = '"+conditonValue2+"'" ;
+            System.out.println(sql);
+            resultSet = stmt.executeQuery(sql);
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return resultSet;
+    }
 
-    static Connection makeConnection() {
+    public static Connection makeConnection() {
         Connection connection = null;
         if (connection != null) {
             return connection;

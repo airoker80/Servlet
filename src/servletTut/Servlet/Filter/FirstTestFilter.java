@@ -1,9 +1,7 @@
 package servletTut.Servlet.Filter;
 
-import org.json.JSONException;
 import org.json.JSONObject;
-import servletTut.Servlet.DBHelper;
-import sun.rmi.runtime.Log;
+import servletTut.Servlet.Helper.DBHelper;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +13,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.util.Enumeration;
 
 public class FirstTestFilter implements Filter {
     @Override
@@ -53,6 +50,7 @@ public class FirstTestFilter implements Filter {
                                 System.out.println(tokenJSON);
                             }
                             if (makeSHA1Hash(tokenJSON.getString("token")).equals(httpRequest.getHeader("token"))){
+
                                 filterChain.doFilter(servletRequest, servletResponse);
                             }else {
                                 printWriter.println("User Authentication failed");
